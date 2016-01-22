@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Una pequeña recopilación de comandos importantes para uso en Git" />
+	<meta name="keywords" content="Cheatsheet, git, español" />
+	<meta name="author" content="ch1003" />
+	<title>Git Cheatsheet</title>
+	<style type="text/css">
+	h1{
+		padding: 5px
+	}
+	img{
+		padding: 5px
+	}
+	pre{
+
+	  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+	  margin-bottom: 10px;
+	  overflow: auto;
+	  width: auto;
+	  padding: 5px;
+	}
+	code{
+		background-color: #000000;
+		color: #FFFFFF;
+		padding: 3px;
+	}
+	</style>
+</head>
+<body>
+<h1><a href="https://git-scm.com/"><img src="https://git-for-windows.github.io/img/gwindows_logo.png" style="float:left;height:40px;width:40px"></a>Git Cheatsheet</h1>
+
+<h3>Moverse a la carpeta deseada</h3>
+<pre>
+<code>dir</code> -> Muestra los directorios accesables desde la consola.
+
+<code>cd &ltDirectorio&gt </code> -> Entrar al directorio. Ayuda a encontrar el directorio en la computadora para inicializar git.
+</pre>
+
+<h3>Commits</h3>
+<pre>
+<code>git help &ltcomando></code> -> Ayuda!
+
+<code>git status</code> -> Muestra el estado y cambios a hacer.
+
+<code>git add -A</code> -> Añade todos los archivos nuevos o modificados para luego hacer commit.
+
+<code>git commit -m "&ltMensaje&gt"</code> -> Hace commit con el mensaje.
+
+<code>git commit -am "&ltMensaje&gt"</code> -> Combina "git add -A" y "git commit -m" en un solo comando.
+
+<code>git commit --ammend -m "&ltMensaje>"</code> -> Reemplaza el mensaje del commit anterior por si se cometió un error.
+
+<code>git log</code> -> Muestra el historial de commits.
+
+<code>git log > &ltNombre>.txt</code> -> Crea un archivo txt con el historial de commits actual. 
+
+<code>git chekout &ltID></code> -> Se devuelve en el tiempo al commit especificado por el identificador.
+
+<code>git chekout master</code> -> Nos devuelve al commit más reciente.
+
+<code>git reset --soft &ltID></code> -> Elimina el commit realizado sin hacer cambios al código.
+
+<code>git reset --hard &ltID></code>-> Elimina el commit y se lleva todo en banda.
+</pre>
+
+<h3>Ramas</h3>
+<p>Sirven para crear alterativas del projecto sin hacer cambios al proyecto master</p>
+<pre>
+
+<code>git branch</code> -> Muestra las ramas.
+
+<code>git branch &ltNombre></code> -> Crea una rama. 
+
+<code>git checkout &ltRama></code> -> Para moverse entre ramas.
+
+<code>git checkout -b &ltRama></code> -> Crea y se mueve a una rama.
+
+<code>git branch -D &ltNombre de Rama></code> -> Elimina la rama.
+
+</pre>
+
+<h3>Fusiones</h3>
+<p>Absorber en una rama, los cambios de otra (Que una rama de pruebas satisfactorias <i>Test</i> sean el nuevo <i>master</i>, por ejemplo).</p>
+<h6>Ejemplo</h6>
+<pre>
+1. Situarse en rama que va a absorber (master).
+2. <code>git merge &ltRama></code> (Test).
+</pre>
+
+<h4>Tipos de conflictos</h4>
+<pre>
+	Fast Foward -> Sin problemas.
+	Manual Merge -> Problemas que necesitan ser manejados manualmente.
+</pre>
+
+<h3>Repositorios remotos</h3>
+<p>Ejemplos: GitHub, BitBucket, Assembla, etc</p>
+<pre>
+
+<code>git clone &ltURL></code> -> Bajamos el repositorio del URL a la carpeta en la que se encuentra la consola.
+
+<code>git remote add origin &ltLlave SSH del repositorio remoto></code> -> Conecta el repositorio local con el remoto.
+
+<code>git remote -v</code> -> Muestra el repositorio remoto con el cual se está enlazado.
+
+<code>git remote remove origin</code> -> Elimina la sincronización con el repositorio remoto.
+
+<code> git push origin &ltRama> (<i>master</i>)</code> -> Manda el repositorio local al repo remoto. (Agregar -f para forzar un push)
+
+<code>git tag -a &ltvX.X> -m "&ltMensaje>" *Codigo SHIA del commit a etiquetar*</code>-> Crea una etiqueta para especificar una versión concreta del proyecto.
+
+<code>git push origin vX.X o git push origin --tags</code> -> Para mandar las etiquetas al repositorio.
+
+</pre>
+<h3>WorkFlow de Equipo</h3>
+<pre>
+1.Crear organización en github o bitbucket.
+2.Agregar colaboradores.
+</pre>
+
+<code>git fetch</code> -> Baja el repositorio remoto a la rama oculta "origin/master"
+
+<code>git merge origin/master</code> -> Si se necesitara hacer un merge manual Git indica donde esta el conflicto.
+
+</body>
+</html>
